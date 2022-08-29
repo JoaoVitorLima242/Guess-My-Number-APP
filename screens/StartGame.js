@@ -51,6 +51,5 @@ const styles = StyleSheet.create({
         color: colors.yellow.primary,
         marginVertical: 8,
         fontWeight: 'bold',
-
     }
 })

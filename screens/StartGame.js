@@ -4,7 +4,10 @@ import {
     StyleSheet
 } from "react-native";
 
+// Components
 import PrimaryButton from "../components/PrimaryButton";
+// Assets
+import { colors } from '../assets/colors'
 
 const StartGameScreen = () => {
     return(
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
         padding: 16,
         marginHorizontal: 24,
         marginTop: 100,
-        backgroundColor: '#72063c',
+        backgroundColor: colors.blue.primary,
         borderRadius: 8,
         elevation: 8,
         shadowColor: '#000',
@@ -43,9 +46,9 @@ const styles = StyleSheet.create({
         width: 50,
         fontSize: 32,
         textAlign: "center",
-        borderBottomColor: '#ddb52f',
+        borderBottomColor: colors.yellow.primary,
         borderBottomWidth: 2,
-        color: '#ddb52f',
+        color: colors.yellow.primary,
         marginVertical: 8,
         fontWeight: 'bold',
 

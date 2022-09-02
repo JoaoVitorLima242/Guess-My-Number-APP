@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { 
     TextInput,
     View,
@@ -10,6 +11,16 @@ import PrimaryButton from "../components/PrimaryButton";
 import { colors } from '../assets/colors'
 
 const StartGameScreen = () => {
+    const [enteredNumber, setEnteredNumber] = useState('')
+
+    const numberInputHandler = (enteredText) => {
+        setEnteredNumber(enteredText)
+    }
+
+    const confirmInputHandler = () => {
+
+    }
+
     return(
         <View style={styles.inputContainer}>
             <TextInput 
@@ -18,13 +29,19 @@ const StartGameScreen = () => {
                 keyboardType='number-pad'
                 autoCapitalize="none"
                 autoCorrect={false}
+                onChange={numberInputHandler}
+                value={enteredNumber}
             />
             <View style={styles.flexButtons}>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton>Reset</PrimaryButton>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <PrimaryButton>Confirm</PrimaryButton>
+                    <PrimaryButton
+                        onPress={confirmInputHandler}
+                    >
+                        Confirm
+                    </PrimaryButton>
                 </View>
             </View>
         </View>

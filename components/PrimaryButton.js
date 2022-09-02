@@ -8,16 +8,12 @@ import {
 // Assets
 import { colors } from '../assets/colors'
 
-const PrimaryButton = ({ children }) => {
-    const PressHandler = () => {
-        console.log('pressed')
-    }
-    
+const PrimaryButton = ({ children, onPress}) => {
     return (
         <View style={styles.buttonOuterContainer}>
             <Pressable 
                 style={({ pressed }) => pressed ? [styles.buttonInnerContainer, styles.pressed] : styles.buttonInnerContainer}
-                onPress={PressHandler}
+                onPress={onPress}
                 android_ripple={{color: colors.blue.darkest}}
             >
                 <Text style={styles.buttonText}>{children}</Text>

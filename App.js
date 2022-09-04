@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   backgroundImage: {
-    opacity: 0.35,
+    opacity: 0.15,
   }
 });

@@ -12,8 +12,6 @@ import NumberContainer from "../components/NumberContainer"
 const GameScreen = ({ userNumber }) => {
     const [currentGuess, setCurrentGuess] = useState(userNumber)
     
-    const initialGuess = generateRandomBetween(1, 100, userNumber)
-
     const generateRandomBetween = (min, max, exclude) => {
       let rndNum = Math.floor(Math.random() * (max - min)) + min;
     
@@ -23,6 +21,9 @@ const GameScreen = ({ userNumber }) => {
         return rndNum;
       } 
     }
+
+    const initialGuess = generateRandomBetween(1, 100, userNumber)
+
 
     return (
         <View style={styles.screen}>

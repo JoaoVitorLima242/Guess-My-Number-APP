@@ -12,12 +12,11 @@ export default Title;
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 'bold',
         color: colors.yellow.secondary,
         textAlign:  "center",
-        borderWidth: 2,
-        borderColor: colors.yellow.secondary,
-        padding: 12
+        padding: 12,
+        marginTop: 20
     }
 })

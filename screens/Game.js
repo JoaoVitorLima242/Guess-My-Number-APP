@@ -7,6 +7,7 @@ import {
 
 // Components 
 import Title from "../components/Title"
+import NumberContainer from "../components/NumberContainer"
 
 const GameScreen = ({ userNumber }) => {
     const [currentGuess, setCurrentGuess] = useState(userNumber)
@@ -26,7 +27,7 @@ const GameScreen = ({ userNumber }) => {
     return (
         <View style={styles.screen}>
             <Title text={"Opponent's Guess"}/>
-            <Text></Text>
+            <NumberContainer numberText={currentGuess}/>
             <View>
                 <Text>Higher or lower?</Text>
             </View>

@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { 
+  ImageBackground,
+  StyleSheet,
+  SafeAreaView
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 // Screens
@@ -37,7 +41,11 @@ export default function App() {
         style={styles.rootScrean}
         imageStyle={styles.backgroundImage}
       >
-        {screen}
+        <SafeAreaView
+          style={styles.rootScrean}
+        >
+          {screen}
+        </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
   );

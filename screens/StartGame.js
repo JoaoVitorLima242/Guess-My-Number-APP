@@ -11,7 +11,7 @@ import PrimaryButton from "../components/PrimaryButton";
 // Assets
 import { colors } from '../assets/colors'
 
-const StartGameScreen = () => {
+const StartGameScreen = ({onConfirmNumber}) => {
     const [enteredNumber, setEnteredNumber] = useState('')
 
     const numberInputHandler = (enteredText) => {
@@ -25,7 +25,6 @@ const StartGameScreen = () => {
 
     const confirmInputHandler = () => {
         const chosenNumber = parseInt(enteredNumber)
-        console.log(chosenNumber)
 
         if(isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
             console.log(chosenNumber)
@@ -37,7 +36,7 @@ const StartGameScreen = () => {
             return;
         }
 
-        console.log('VALID NUMBER')
+        onConfirmNumber(chosenNumber)
     }
 
     return(

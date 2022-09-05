@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { 
     Text,
     View,
@@ -16,10 +16,13 @@ import { generateRandomBetween } from "../helpers/number"
 let minBoundary = 1;
 let maxBoundary = 100;
 
-const GameScreen = ({ userNumber }) => {
-    const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber)
-    console.log(initialGuess)
+const GameScreen = ({ userNumber, onGameOver }) => {
+    const initialGuess = useMemo(() => generateRandomBetween(minBoundary, maxBoundary, userNumber), [userNumber, onGameOver])
     const [currentGuess, setCurrentGuess] = useState(initialGuess)
+
+    useEffect(() => {
+        if( currentGuess === userNumber) onGameOver()
+    }, [currentGuess, userNumber, onGameOver])
 
     const nextGuessHandler = ( direction ) => {
         if (

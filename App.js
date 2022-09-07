@@ -69,7 +69,6 @@ export default function App() {
         <SafeAreaView
           style={styles.rootContainer}
         >
-          <Title text={'Guess My Number'}/>
           {screen}
         </SafeAreaView>
       </ImageBackground>

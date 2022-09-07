@@ -13,6 +13,7 @@ import Card from "../components/Card";
 import InstructionText from "../components/InstructionText";
 // Assets
 import { colors } from '../assets/colors'
+import Title from "../components/Title";
 
 const StartGameScreen = ({onConfirmNumber}) => {
     const [enteredNumber, setEnteredNumber] = useState('')
@@ -42,34 +43,37 @@ const StartGameScreen = ({onConfirmNumber}) => {
     }
 
     return(
-        <Card style={styles.inputContainer}>
-            <InstructionText>Enter a number</InstructionText>
-            <TextInput 
-                style={styles.textInput} 
-                maxLength={2}
-                keyboardType='number-pad'
-                autoCapitalize="none"
-                autoCorrect={false}
-                onChangeText={numberInputHandler}
-                value={enteredNumber}
-            />
-            <View style={styles.flexButtons}>
-                <View style={styles.buttonContainer}>
-                    <PrimaryButton 
-                        onPress={resetInputHandler}
-                    >
-                        Reset
-                    </PrimaryButton>
+        <View style={styles.flexOne}>
+            <Title>Guess My Number</Title>
+            <Card style={styles.inputContainer}>
+                <InstructionText>Enter a number</InstructionText>
+                <TextInput 
+                    style={styles.textInput} 
+                    maxLength={2}
+                    keyboardType='number-pad'
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    onChangeText={numberInputHandler}
+                    value={enteredNumber}
+                />
+                <View style={styles.flexButtons}>
+                    <View style={styles.buttonContainer}>
+                        <PrimaryButton 
+                            onPress={resetInputHandler}
+                        >
+                            Reset
+                        </PrimaryButton>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <PrimaryButton
+                            onPress={confirmInputHandler}
+                        >
+                            Confirm
+                        </PrimaryButton>
+                    </View>
                 </View>
-                <View style={styles.buttonContainer}>
-                    <PrimaryButton
-                        onPress={confirmInputHandler}
-                    >
-                        Confirm
-                    </PrimaryButton>
-                </View>
-            </View>
-        </Card>
+            </Card>
+        </View>
     )
 
 }
@@ -94,6 +98,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonContainer: {
+        flex: 1
+    },
+    flexOne: {
         flex: 1
     }
 })

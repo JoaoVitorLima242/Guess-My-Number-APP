@@ -3,9 +3,9 @@ import { StyleSheet, Text } from "react-native";
 // Assets
 import { colors } from "../assets/colors";
 
-const Title = ({text}) => {
+const Title = ({children}) => {
 
-    return <Text style={styles.title}>{text}</Text>
+    return <Text style={styles.title}>{children}</Text>
 }
 
 export default Title;

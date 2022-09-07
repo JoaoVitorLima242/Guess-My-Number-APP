@@ -53,7 +53,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
 
     return (
         <View style={styles.screen}>
-            <Title text={"Opponent's Guess"}/>
+            <Title>Opponent's Guess</Title>
             <NumberContainer numberText={currentGuess}/>
             <Card>
                 <View>

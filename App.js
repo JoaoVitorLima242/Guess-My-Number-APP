@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useFonts } from 'expo-font';
 
 // Screens
 import StartGameScreen from './screens/StartGame';
@@ -15,30 +16,39 @@ import GameOverScreen from './screens/GameOver';
 import { colors } from './assets/colors';
 // Components
 import Title from './components/Title';
+import AppLoading from 'expo-app-loading';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null)
   const [isOver, setIsOver] = useState(true)
 
+  const [fontsLoaded] = useFonts({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+
+  });
+
+  
   const StartGameHandler = (pickedNumber) => {
     setUserNumber(pickedNumber)
     setIsOver(false)
   }
-  
   const gameOverHandler = () => {
     setIsOver(true)
   }
-
+  
+  
   let screen = <StartGameScreen onConfirmNumber={StartGameHandler}/>
-
+  
   if (userNumber) {
     screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler}/>
   }
-
+  
   if (isOver && userNumber) {
     screen = <GameOverScreen />
   }
-
+  
+  if (!fontsLoaded) return <AppLoading/>
 
   return (
     <LinearGradient 
@@ -51,7 +61,7 @@ export default function App() {
     ]}
     >
       <ImageBackground 
-        source={require('./assets/background.png')}
+        source={require('./assets/images/background.png')}
         resizeMode='cover'
         style={styles.rootScrean}
         imageStyle={styles.backgroundImage}

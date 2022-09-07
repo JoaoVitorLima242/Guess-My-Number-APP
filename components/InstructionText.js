@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     instructionText: {
         color: colors.yellow.primary,
         textAlign: "center",
-        fontSize: 24
+        fontSize: 24,
+        fontFamily: 'open-sans'
     }
 })

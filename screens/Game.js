@@ -12,6 +12,8 @@ import NumberContainer from "../components/NumberContainer"
 import PrimaryButton from "../components/PrimaryButton"
 // Helpers
 import { generateRandomBetween } from "../helpers/number"
+import Card from "../components/Card"
+import InstructionText from "../components/InstructionText"
 
 let minBoundary = 1;
 let maxBoundary = 100;
@@ -52,21 +54,27 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         <View style={styles.screen}>
             <Title text={"Opponent's Guess"}/>
             <NumberContainer numberText={currentGuess}/>
-            <View>
-                <Text>Higher or lower?</Text>
+            <Card>
                 <View>
-                    <PrimaryButton
-                        onPress={() => nextGuessHandler('higher')}
-                    >
-                        +
-                    </PrimaryButton>
-                    <PrimaryButton
-                        onPress={() => nextGuessHandler('lower')}
-                    >
-                        -
-                    </PrimaryButton>
+                    <InstructionText>Higher or lower?</InstructionText>
+                    <View style={styles.buttonsContainer}>
+                        <View style={styles.buttonContainer}>
+                            <PrimaryButton
+                                onPress={() => nextGuessHandler('higher')}
+                            >
+                                +
+                            </PrimaryButton>
+                        </View>
+                        <View style={styles.buttonContainer}>
+                            <PrimaryButton
+                                onPress={() => nextGuessHandler('lower')}
+                            >
+                                -
+                            </PrimaryButton>
+                        </View>
+                    </View>
                 </View>
-            </View>
+            </Card>
         </View>
     )
 }
@@ -78,7 +86,11 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 24
     },
-    buttons: {
-
+    buttonsContainer: {
+        flexDirection: 'row',
+        marginTop: 20
+    },
+    buttonContainer: {
+        flex: 1
     }
 })

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { 
   ImageBackground,
   StyleSheet,
-  SafeAreaView
+  SafeAreaView,
+  View
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -12,6 +13,8 @@ import GameScreen from './screens/Game';
 import GameOverScreen from './screens/GameOver';
 // Assets
 import { colors } from './assets/colors';
+// Components
+import Title from './components/Title';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null)
@@ -39,13 +42,13 @@ export default function App() {
 
   return (
     <LinearGradient 
-      style={styles.rootScrean}
-      colors={[
-        colors.blue.darkest,
-        colors.blue.darkest,
-        colors.blue.secondary,
-        colors.blue.primary,
-      ]}
+    style={styles.rootScrean}
+    colors={[
+      colors.blue.darkest,
+      colors.blue.darkest,
+      colors.blue.secondary,
+      colors.blue.primary,
+    ]}
     >
       <ImageBackground 
         source={require('./assets/background.png')}
@@ -54,8 +57,9 @@ export default function App() {
         imageStyle={styles.backgroundImage}
       >
         <SafeAreaView
-          style={styles.rootScrean}
+          style={styles.rootContainer}
         >
+          <Title text={'Guess My Number'}/>
           {screen}
         </SafeAreaView>
       </ImageBackground>
@@ -67,6 +71,10 @@ const styles = StyleSheet.create({
   rootScrean: {
     flex: 1
   },
+  rootContainer: {
+    marginTop: 40,
+    flex: 1
+  },  
   backgroundImage: {
     opacity: 0.15,
   }

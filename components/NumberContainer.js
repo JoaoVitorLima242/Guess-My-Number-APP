@@ -4,7 +4,7 @@ import { colors } from "../assets/colors";
 const NumberContainer = ({numberText}) => {
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, styles.borderTitle]}>
             <Text style={styles.numberText}>{numberText}</Text>
         </View>
     )
@@ -14,11 +14,8 @@ export default NumberContainer;
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 4,
-        borderColor: colors.yellow.secondary,
         borderRadius: 8,
         padding: 24,
-        margin: 24,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -26,5 +23,9 @@ const styles = StyleSheet.create({
         color: colors.yellow.secondary,
         fontSize: 36,
         fontWeight: 'bold'
+    },
+    borderTitle: {
+        borderWidth: 2,
+        borderColor: colors.yellow.secondary,
     }
 })

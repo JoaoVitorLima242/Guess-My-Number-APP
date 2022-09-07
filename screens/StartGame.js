@@ -3,11 +3,14 @@ import {
     TextInput,
     View,
     StyleSheet,
-    Alert
+    Alert,
+    Text
 } from "react-native";
 
 // Components
 import PrimaryButton from "../components/PrimaryButton";
+import Card from "../components/Card";
+import InstructionText from "../components/InstructionText";
 // Assets
 import { colors } from '../assets/colors'
 
@@ -27,7 +30,6 @@ const StartGameScreen = ({onConfirmNumber}) => {
         const chosenNumber = parseInt(enteredNumber)
 
         if(isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
-            console.log(chosenNumber)
             Alert.alert(
                 'Invalid Number!',
                 'Number has to be a number between 1 and 99.',
@@ -40,7 +42,8 @@ const StartGameScreen = ({onConfirmNumber}) => {
     }
 
     return(
-        <View style={styles.inputContainer}>
+        <Card style={styles.inputContainer}>
+            <InstructionText>Enter a number</InstructionText>
             <TextInput 
                 style={styles.textInput} 
                 maxLength={2}
@@ -66,7 +69,7 @@ const StartGameScreen = ({onConfirmNumber}) => {
                     </PrimaryButton>
                 </View>
             </View>
-        </View>
+        </Card>
     )
 
 }
@@ -74,20 +77,6 @@ const StartGameScreen = ({onConfirmNumber}) => {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-    inputContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 16,
-        marginHorizontal: 24,
-        marginTop: 100,
-        backgroundColor: colors.blue.primary,
-        borderRadius: 8,
-        elevation: 8,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2},
-        shadowRadius: 6,
-        shadowOpacity: 0.25
-    },
     textInput: {
         height: 50,
         width: 50,

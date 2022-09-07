@@ -5,6 +5,7 @@ import {
     StyleSheet,
     Alert
 } from "react-native"
+import { Ionicons } from '@expo/vector-icons'
 
 // Components 
 import Title from "../components/Title"
@@ -62,14 +63,14 @@ const GameScreen = ({ userNumber, onGameOver }) => {
                             <PrimaryButton
                                 onPress={() => nextGuessHandler('higher')}
                             >
-                                +
+                                <Ionicons name="md-add" size={24} color='#fff'/>
                             </PrimaryButton>
                         </View>
                         <View style={styles.buttonContainer}>
                             <PrimaryButton
                                 onPress={() => nextGuessHandler('lower')}
                             >
-                                -
+                                <Ionicons name="md-remove" size={24} color='#fff'/>
                             </PrimaryButton>
                         </View>
                     </View>

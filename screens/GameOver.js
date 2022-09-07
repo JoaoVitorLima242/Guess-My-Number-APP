@@ -9,6 +9,7 @@ import {
 import Title from "../components/Title";
 // Assets
 import { colors } from "../assets/colors";
+import PrimaryButton from "../components/PrimaryButton";
 
 const GameOverScreen = () => {
 
@@ -22,7 +23,10 @@ const GameOverScreen = () => {
                 />
             </View>
             <View>
-                <Text>Your phone needed X rounds to guess the number Y.</Text>
+                <Text style={styles.summaryText}>
+                    Your phone needed <Text style={styles.highlight}>X</Text> rounds to guess the number <Text style={styles.highlight}>Y</Text>.
+                </Text>
+                <PrimaryButton>Start new game</PrimaryButton>
             </View>
         </View>
     )
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     rootContainer: {
         flex: 1,
         padding: 24,
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center'
     },
     imageContainer: {
@@ -49,5 +53,15 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: '100%',
+    },
+    summaryText: {
+        fontFamily: 'open-sans',
+        fontSize: 24,
+        textAlign: 'center',
+        marginVertical: 20
+    },
+    highlight: {
+        fontFamily: 'open-sans-bold',
+        color: colors.yellow.secondary
     }
 })

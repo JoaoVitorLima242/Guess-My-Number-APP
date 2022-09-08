@@ -3,8 +3,7 @@ import {
     TextInput,
     View,
     StyleSheet,
-    Alert,
-    Text
+    Alert
 } from "react-native";
 
 // Components
@@ -43,7 +42,7 @@ const StartGameScreen = ({onConfirmNumber}) => {
     }
 
     return(
-        <View style={styles.flexOne}>
+        <View style={styles.rootContainer}>
             <Title>Guess My Number</Title>
             <Card style={styles.inputContainer}>
                 <InstructionText>Enter a number</InstructionText>
@@ -100,7 +99,8 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1
     },
-    flexOne: {
-        flex: 1
+    rootContainer: {
+        flex: 1,
+        alignItems: 'center'
     }
 })

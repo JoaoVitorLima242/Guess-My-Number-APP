@@ -3,7 +3,8 @@ import {
     Text,
     View,
     StyleSheet,
-    Alert
+    Alert,
+    FlatList
 } from "react-native"
 import { Ionicons } from '@expo/vector-icons'
 
@@ -22,10 +23,17 @@ let maxBoundary = 100;
 const GameScreen = ({ userNumber, onGameOver }) => {
     const initialGuess = useMemo(() => generateRandomBetween(minBoundary, maxBoundary, userNumber), [userNumber, onGameOver])
     const [currentGuess, setCurrentGuess] = useState(initialGuess)
+    const [guessRounds, setGuessRounds] = useState([initialGuess])
+
 
     useEffect(() => {
         if( currentGuess === userNumber) onGameOver()
     }, [currentGuess, userNumber, onGameOver])
+
+    useEffect(() =>{
+        minBoundary = 1
+        maxBoundary = 100;
+    }, [])
 
     const nextGuessHandler = ( direction ) => {
         if (
@@ -47,6 +55,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         }
         const newRandomNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
         setCurrentGuess(newRandomNumber)
+        setGuessRounds(prevState => [...prevState, newRandomNumber])
     }
 
 
@@ -76,6 +85,15 @@ const GameScreen = ({ userNumber, onGameOver }) => {
                     </View>
                 </View>
             </Card>
+            <View>
+               <FlatList 
+                    data={guessRounds}
+                    keyExtractor={(item => item)}
+                    renderItem={({item}) => (
+                        <Text>{item}</Text>
+                    )}
+               />
+            </View>
         </View>
     )
 }

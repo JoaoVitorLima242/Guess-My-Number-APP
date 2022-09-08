@@ -21,6 +21,7 @@ import AppLoading from 'expo-app-loading';
 export default function App() {
   const [userNumber, setUserNumber] = useState(null)
   const [isOver, setIsOver] = useState(true)
+  const [guessRounds, setGuessRounds] = useState(0)
 
   const [fontsLoaded] = useFonts({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -29,23 +30,29 @@ export default function App() {
   });
 
   
-  const StartGameHandler = (pickedNumber) => {
+  const pickedNumberHandler = (pickedNumber) => {
     setUserNumber(pickedNumber)
     setIsOver(false)
   }
+
+  const StartNewGameHandler = () => {
+    setUserNumber(null)
+    setGuessRounds(0)
+  }
+
   const gameOverHandler = () => {
     setIsOver(true)
   }
   
   
-  let screen = <StartGameScreen onConfirmNumber={StartGameHandler}/>
+  let screen = <StartGameScreen onConfirmNumber={pickedNumberHandler}/>
   
   if (userNumber) {
     screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler}/>
   }
   
   if (isOver && userNumber) {
-    screen = <GameOverScreen />
+    screen = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onStartNewGame={StartNewGameHandler}/>
   }
   
   if (!fontsLoaded) return <AppLoading/>

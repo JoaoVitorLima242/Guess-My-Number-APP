@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
         fontFamily: 'open-sans',
         fontSize: 24,
         textAlign: 'center',
-        marginVertical: 20
+        marginVertical: 20,
+        color: colors.yellow.secondary
     },
     highlight: {
         fontFamily: 'open-sans-bold',
-        color: colors.yellow.secondary
     }
 })

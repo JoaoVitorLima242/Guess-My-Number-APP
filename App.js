@@ -40,7 +40,8 @@ export default function App() {
     setGuessRounds(0)
   }
 
-  const gameOverHandler = () => {
+  const gameOverHandler = (numberRounds) => {
+    setGuessRounds(numberRounds)
     setIsOver(true)
   }
   

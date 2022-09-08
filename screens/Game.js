@@ -11,11 +11,12 @@ import { Ionicons } from '@expo/vector-icons'
 // Components 
 import Title from "../components/Title"
 import NumberContainer from "../components/NumberContainer"
+import InstructionText from "../components/InstructionText"
+import GuessLogItem from "../components/GuessLogItem"
 import PrimaryButton from "../components/PrimaryButton"
+import Card from "../components/Card"
 // Helpers
 import { generateRandomBetween } from "../helpers/number"
-import Card from "../components/Card"
-import InstructionText from "../components/InstructionText"
 
 let minBoundary = 1;
 let maxBoundary = 100;
@@ -55,8 +56,10 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         }
         const newRandomNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
         setCurrentGuess(newRandomNumber)
-        setGuessRounds(prevState => [...prevState, newRandomNumber])
+        setGuessRounds(prevState => [newRandomNumber, ...prevState])
     }
+
+    const guessRoundsListLength = guessRounds.length
 
 
 
@@ -89,8 +92,8 @@ const GameScreen = ({ userNumber, onGameOver }) => {
                <FlatList 
                     data={guessRounds}
                     keyExtractor={(item => item)}
-                    renderItem={({item}) => (
-                        <Text>{item}</Text>
+                    renderItem={({item, index}) => (
+                        <GuessLogItem roundNumber={guessRoundsListLength - index} guess={item}/>
                     )}
                />
             </View>

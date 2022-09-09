@@ -6,7 +6,7 @@ import { colors } from "../assets/colors";
 const Title = ({children}) => {
     const windowProps = useWindowDimensions()
 
-    const marginTop = windowProps.height > 400 ? 20 : 0
+    const marginTop = windowProps.height > 400 ? 60 : 0
 
     return <Text style={[styles.title, {marginTop}]}>{children}</Text>
 }

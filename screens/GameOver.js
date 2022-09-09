@@ -1,4 +1,5 @@
 import { 
+    Dimensions,
     Image,
     StyleSheet,
     Text,
@@ -34,6 +35,8 @@ const GameOverScreen = ({roundsNumber, userNumber, onStartNewGame}) => {
 
 export default GameOverScreen;
 
+const deviceWidth = Dimensions.get('window').width
+
 const styles = StyleSheet.create({
     rootContainer: {
         flex: 1,
@@ -42,9 +45,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     imageContainer: {
-        height: 300,
-        width: 300,
-        borderRadius: 200,
+        width: deviceWidth < 380 ? 150 : 300,
+        height: deviceWidth < 380 ? 150 : 300,
+        borderRadius: deviceWidth < 380 ? 75 : 150,
         borderWidth: 3,
         borderColor: colors.blue.darkest,
         overflow: "hidden",

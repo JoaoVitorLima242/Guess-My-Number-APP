@@ -6,7 +6,7 @@ const GuessLogItem = ({guess, roundNumber}) => {
     return (
         <View style={styles.listItem}>
             <Text style={styles.itemText}>#{roundNumber}</Text>
-            <Text style={styles.itemText}>Opponent's Guess: {' ' + guess}</Text>
+            <Text style={styles.itemText}>Guess Number: {' ' + guess}</Text>
         </View>
     )
 }

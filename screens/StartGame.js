@@ -3,7 +3,8 @@ import {
     TextInput,
     View,
     StyleSheet,
-    Alert
+    Alert,
+    Dimensions
 } from "react-native";
 
 // Components

@@ -1,4 +1,8 @@
-import { useWindowDimensions, StyleSheet, Text } from "react-native";
+import { 
+    useWindowDimensions,
+    StyleSheet,
+    Text
+} from "react-native";
 
 // Assets
 import { colors } from "../assets/colors";
